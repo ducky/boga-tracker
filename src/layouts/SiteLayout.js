@@ -6,6 +6,7 @@ import Icon from '@fortawesome/react-fontawesome';
 import Header from 'components/Header';
 import ModalContainer from 'components/Modal.container';
 import ToastContainer from 'components/Toast.container';
+import Logo from 'assets/logo.png';
 
 const SiteContainer = styled.div`
   display: grid;
@@ -17,6 +18,10 @@ const SiteContainer = styled.div`
     'Action'
     'Content'
     'Footer';
+
+  .Site__logo {
+    height: 25px;
+  }
 
   .Layout__actions {
     grid-area: Action;
@@ -58,7 +63,9 @@ const FootNote = styled.div`
 const SiteLayout = ({ children }) => (
   <SiteContainer>
     <Header>
-      <Link to="/">BogaSoft Enterprises</Link>
+      <Link to="/">
+        <img className="Site__logo" src={Logo} alt="Bogasoft Enterprises" />
+      </Link>
       {/* <Link to="/">Home</Link> */}
     </Header>
     {children}
