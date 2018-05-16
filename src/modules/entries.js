@@ -10,6 +10,9 @@ import { actions as toastActions } from 'modules/toast';
 // Utils
 import { replaceItem, removeItem } from 'utils/array';
 
+// Constants
+import DEFAULT_ENTRIES from 'constants/defaultEntries';
+
 // State
 const defaultState = {
   data: [],
@@ -28,7 +31,7 @@ export const actions = createActions('FETCH_ENTRIES', 'DELETE_ENTRY', 'SAVE_ENTR
 // Sagas
 export function* fetchEntriesSaga() {
   try {
-    const entries = yield call(fetchLocalEntries, []);
+    const entries = yield call(fetchLocalEntries, DEFAULT_ENTRIES);
     yield put(actions.replaceEntries(entries));
   } catch (e) {
     console.log(e);
