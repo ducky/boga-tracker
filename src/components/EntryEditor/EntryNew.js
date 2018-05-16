@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import theme from 'styles/theme';
 
+import EdnaEmote from 'assets/edna.png';
+
 const StyledEntry = styled.div`
   display: flex;
   flex-flow: column;
@@ -41,12 +43,13 @@ const StyledEntry = styled.div`
 const Entry = ({ onClick }) => (
   <StyledEntry onClick={onClick}>
     <div className="Entry__emoji">
-      <span role="img" aria-label="Basic">
+      <img src={EdnaEmote} alt="Granny Edna" />
+      {/* <span role="img" aria-label="Basic">
         🤷‍
-      </span>
+      </span> */}
     </div>
     <div className="Entry__text">
-      <em>Click</em>
+      <em>Click Here</em>
     </div>
     <div className="Entry__text">For More Scam</div>
   </StyledEntry>

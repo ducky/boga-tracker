@@ -135,6 +135,7 @@ const Entry = ({ details, editing, onBalanceAction, onChange, onCancel, onEdit, 
     phoneNumberLocal,
     scamReps,
     scamAmount,
+    scamReference,
     creditCard,
     notes,
     persona,
@@ -150,13 +151,12 @@ const Entry = ({ details, editing, onBalanceAction, onChange, onCancel, onEdit, 
     <StyledEntry>
       <div className="Entry__title">
         <div className="Entry__title-left">
-          <div className="Entry__title-main">{`${momentDate.format('MMMM Do, h:m A')}`}</div>
+          <div className="Entry__title-main">
+            {`${momentDate.format('MMMM Do, h:m A')}`} - {personaFormatted || 'N/A'}
+          </div>
           <div className="Entry__title-attrs">
             <div className="Entry__title-attr">
               <strong>Type:</strong> {scamTypeFormatted || 'N/A'}
-            </div>
-            <div className="Entry__title-attr">
-              <strong>Persona:</strong> {personaFormatted || 'N/A'}
             </div>
             <div className="Entry__title-attr">
               <strong>Duration:</strong> {moment.duration(duration, 'milliseconds').format('hh:mm:ss', { trim: false })}
@@ -178,6 +178,10 @@ const Entry = ({ details, editing, onBalanceAction, onChange, onCancel, onEdit, 
           {phoneNumberLocal ? formatPhone(phoneNumberLocal) : <div className="Entry__field-empty">Not Specified</div>}
         </div>
         <div className="Entry__field">
+          <Label>Scam Reference Number</Label>
+          {scamReference || <div className="Entry__field-empty">Not Specified</div>}
+        </div>
+        <div className="Entry__field">
           <Label>Scammer(s)</Label>
           {!hasScamReps && <div className="Entry__field-empty">Not Specified</div>}
           {hasScamReps && (
@@ -194,7 +198,7 @@ const Entry = ({ details, editing, onBalanceAction, onChange, onCancel, onEdit, 
                   )}
                   {scamRep.customerId && (
                     <div className="Entry__representative-attr">
-                      <strong>Customer ID:</strong> {scamRep.employeeId}
+                      <strong>Customer ID:</strong> {scamRep.customerId}
                     </div>
                   )}
                 </div>

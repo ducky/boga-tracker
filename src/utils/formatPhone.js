@@ -1,5 +1,5 @@
 const formatPhone = phoneString => {
-  const safeString = phoneString.replace(/[^0-9]/g, '');
+  const safeString = phoneString.replace(/[^0-9a-zA-Z]/g, '');
   const [country, areaCode, three, four] = [
     safeString.slice(-11, -10),
     safeString.slice(-10, -7),
