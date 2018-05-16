@@ -58,10 +58,8 @@ const FootNote = styled.div`
 const SiteLayout = ({ children }) => (
   <SiteContainer>
     <Header>
-      <Link to="/" style={{ padding: '0 20px' }}>
-        BogaSoft Enterprises
-      </Link>
-      <Link to="/">Home</Link>
+      <Link to="/">BogaSoft Enterprises</Link>
+      {/* <Link to="/">Home</Link> */}
     </Header>
     {children}
     <div className="Layout__footer">
